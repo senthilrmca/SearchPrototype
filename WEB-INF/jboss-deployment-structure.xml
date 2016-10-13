@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-deployment-structure>
+	<deployment>
+	    <exclusions>
+			<module name="org.apache.log4j" />
+			<!-- <module name="com.fasterxml.jackson.core.jackson-core" />
+			<module name="com.fasterxml.jackson.core.jackson-annotations" />
+			<module name="com.fasterxml.jackson.core.jackson-databind" /> -->
+		</exclusions>
+		
+		<dependencies>
+		
+
+		<module name="org.slf4j" />
+
+		</dependencies>
+		<resources>
+			<resource-root path="." />
+		</resources>
+		
+	</deployment>
+</jboss-deployment-structure>
