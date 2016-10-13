@@ -1,0 +1,118 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/WEB-INF/template.xhtml">
+
+	<ui:define name="content">
+		<h:outputScript name="jquery/jquery.js" library="primefaces"
+			target="head" />
+
+		<h3 class="hardblue TexAlCenter">Search Child Care Provider</h3>
+<div class="ContainerIndent ui-fluid">
+		<p:panel>
+			<div class="Container">
+				<div
+					class="Container100 MaxWid800 Fnone MarAuto TexAlCenter">
+					<div class="ContainerIndent">
+
+						<div class="Container50 Responsive50">
+							<div class="ContainerIndent">
+								<p:outputLabel value="Provider Name" for="providerName" styleClass="Fright MarAuto"/>
+							</div>
+						</div>
+						<div class="Container50 Responsive50">
+							<div class="ContainerIndent">
+								<p:autoComplete id="providerName"
+									value="#{providerSearchBean.selectedProvider}"
+									completeMethod="#{providerSearchBean.completeProviderContains}"
+									var="provider" itemLabel="#{provider.providerName}"
+									itemValue="#{provider}" converter="providerConverter"
+									scrollHeight="250" />
+							</div>
+						</div>
+						
+						<div class="Container50 Responsive50">
+							<div class="ContainerIndent">
+								<p:outputLabel value="Provider Type" for="providerType" styleClass="Fright MarAuto"/>
+							</div>
+						</div>
+						<div class="Container50 Responsive50">
+							<div class="ContainerIndent">
+								 <p:selectOneMenu id="providerType" value="">
+                                        <f:selectItem itemLabel="Select One" itemValue="" />
+                                       <f:selectItems
+                            value="#{codesBean.getCodesByCategogy('PT')}"
+                            var="codes" itemLabel="#{codes.codeDescription}" itemValue="#{codes.codeValue}"></f:selectItems>
+                                    </p:selectOneMenu>
+							</div>
+						</div>
+						
+						<div class="Container50 Responsive50">
+							<div class="ContainerIndent">
+								<p:outputLabel value="City" for="city" styleClass="Fright MarAuto"/>
+							</div>
+						</div>
+						<div class="Container50 Responsive50">
+							<div class="ContainerIndent">
+								<p:selectOneMenu id="city" value="">
+                                        <f:selectItem itemLabel="Select One" itemValue="" />
+                                        <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                        <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                        <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                                    </p:selectOneMenu>
+							</div>
+						</div>
+						
+						<div class="Container50 Responsive50">
+							<div class="ContainerIndent">
+								<p:outputLabel value="County" for="county" styleClass="Fright MarAuto"/>
+							</div>
+						</div>
+						<div class="Container50 Responsive50">
+							<div class="ContainerIndent">
+								<p:selectOneMenu id="county" value="">
+                                       <f:selectItem itemLabel="Select One" itemValue="" />
+                                        <f:selectItems
+                            value="#{codesBean.getCodesByCategogy('COUNTY')}"
+                            var="codes" itemLabel="#{codes.codeDescription}" itemValue="#{codes.codeValue}"></f:selectItems>
+                                    </p:selectOneMenu>
+							</div>
+						</div>
+						
+						<div class="Container50 Responsive50">
+							<div class="ContainerIndent">
+								<p:outputLabel value="Quality Star Rating" for="qualityStarRating" styleClass="Fright MarAuto"/>
+							</div>
+						</div>
+						<div class="Container50 Responsive50">
+							<div class="ContainerIndent">
+								<p:selectOneMenu id="qualityStarRating" value="">
+                                        <f:selectItem itemLabel="Select One" itemValue="" />
+                                      <f:selectItems
+                            value="#{codesBean.getCodesByCategogy('QR')}"
+                            var="codes" itemLabel="#{codes.codeDescription}" itemValue="#{codes.codeValue}"></f:selectItems>
+                                    </p:selectOneMenu>
+							</div>
+						</div>
+						
+						<div class="Container50 Responsive50">
+							<div class="ContainerIndent">
+								<p:commandButton value="Search" styleClass="Wid50"/>
+							</div>
+						</div>
+						<div class="Container50 Responsive50">
+							<div class="ContainerIndent">
+								<p:commandButton value="Reset" />
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</p:panel>
+		</div>
+	</ui:define>
+
+</ui:composition>
